@@ -3,29 +3,30 @@
 
 
 Based on the following:  
-https://github.com/singingwolfboy/flask-dance-google   
+[Flask](https://github.com/pallets/flask) - license: https://github.com/pallets/flask-website/blob/master/LICENSE
+and  
+[Flask Dance](https://github.com/singingwolfboy/flask-dance-google)   
 Documentation:  
 https://flask-dance.readthedocs.io/en/v0.8.3/quickstarts/google.html  
 
 ## Code Structure
 
 ```
- --|
-   |--app/ 
-       |--static/
-       |--templates/
-       | __init__.py
-       | forms.py
-       | models.py
-       | routes.py
-       | utils.py
-   |
-   |--logs/
-   |--migrations/
-   |--sqllite/
-   |
-   | flask-oauth.py
-   | useradmin.py    
+ 
+ app/ 
+   |--static/
+   |--templates/
+   | __init__.py
+   | forms.py
+   | models.py
+   | routes.py
+   | utils.py
+   
+ logs/
+ migrations/
+ sqllite/
+ flask-oauth.py
+ useradmin.py    
 ```
 
 
