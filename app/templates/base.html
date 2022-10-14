@@ -1,0 +1,94 @@
+<html>
+
+    <head>
+        <!-- bootstrap 4.2.1. -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Flask App</title>
+        {% endif %}
+
+        {% block styles %}
+            <style>
+
+                .bi-house-door {color: #d9d9d9;}
+                .bi-house-door:hover {color: #6699ff;}
+                .bi-house-door-fill {color: #d9d9d9;}
+                .bi-house-door-fill:hover {color: #6699ff;}
+                .bi-person {color: #d9d9d9;}
+                .bi-person:hover {color: #6699ff;}
+                .bi-people {color: #d9d9d9;}
+                .bi-people:hover {color: #6699ff;}
+                .bi-box-arrow-right {color: #d9d9d9;}
+                .bi-box-arrow-right:hover {color: #6699ff;}
+
+                .nav-link {color: #d9d9d9;}
+                .nav-link:hover {color: #f2f2f2;}
+
+            </style>
+        {% endblock %}
+
+        <nav class="navbar navbar-expand-sm bg-dark">
+            <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="bi-house-door" href="{{ url_for('index') }}" style="font-size: 2.5rem; "></a>
+                    </span>
+                </li>
+
+                {% if current_user.is_admin %}
+                    <a class="bi-people mx-2" href="{{ url_for('find_users') }}" style="font-size: 2.5rem; "></a>
+                {% endif %}
+
+            </ul>
+
+            <ul class="navbar-nav navbar-right">
+              {% if not current_user.is_anonymous %}
+                <!-- show link to user-profile on navbar unless this is the user-profile page, then show logout -->
+                {% if request.path.split('/')[1] == "profile" or request.path.split('/')[1] == "profile_edit" %}
+                    <a class="bi-box-arrow-right mx-2" href="{{ url_for('logout') }}" style="font-size: 2.5rem; "></a>
+                {% else %}
+                    <a class="bi-person mx-2" href="{{ url_for('profile', email=current_user.email) }}" style="font-size: 2.5rem; "></a>
+                {% endif %}
+              {% endif %}
+            </ul>
+
+            </div>
+        </nav>
+    </head>
+
+    <body>
+        <br>
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <br>
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {# application content needs to be provided in the app_content block #}
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- JQuery, Popper, Bootstrap JS JavaScript for Bootstrap -->
+	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!-- tooltip enable -->
+        <script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});</script>
+        <!-- datetime calendar utility -->
+        <!--<script src="/static/jquery.datetimepicker.full.min.js"></script>-->
+    </body>
+
+</html>

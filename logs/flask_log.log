@@ -1,0 +1,7 @@
+2022-09-08 18:25:10,802 INFO: Flask Web Application Startup [in /Users/ed.bullen/src/flask-oauth-dance/app/__init__.py:205]
+2022-09-08 18:25:11,131 INFO: Flask Web Application Startup [in /Users/ed.bullen/src/flask-oauth-dance/app/__init__.py:205]
+2022-09-08 18:28:38,206 INFO: Flask Web Application Startup [in /Users/ed.bullen/src/flask-oauth-dance/app/__init__.py:205]
+2022-09-08 18:28:38,506 INFO: Flask Web Application Startup [in /Users/ed.bullen/src/flask-oauth-dance/app/__init__.py:205]
+2022-09-08 18:28:55,347 INFO: Testing Info Logging [in /Users/ed.bullen/src/flask-oauth-dance/app/routes.py:56]
+2022-09-08 18:28:55,347 WARNING: Testing Warn Logging [in /Users/ed.bullen/src/flask-oauth-dance/app/routes.py:57]
+2022-09-08 18:28:55,347 ERROR: Testing Warn Logging [in /Users/ed.bullen/src/flask-oauth-dance/app/routes.py:58]

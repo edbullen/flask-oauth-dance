@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> User Profile </h1>
+
+    {% if current_user.email == user.email %}
+    Logged in as <span class="badge badge-dark">{{user.email}}</span>
+    <a href="{{ url_for('logout') }}">(logout)</a> <br>
+    {% else %}
+    Profile for <span class="badge badge-secondary">{{user.email}}</span> <br>
+    {% endif %}
+
+    Username: <i>{{ user.username }}</i>
+    <br> <br>
+
+    <b>User roles:</b>
+
+    <br><br>
+
+    {% for role in all_roles|sort %}
+        {% if role in user_roles %}
+            <i class="bi-check-square-fill" style="font-size: 1.2rem; "></i> {{ role }}
+         {% else %}
+            <i class="bi-square" style="font-size: 1.2rem; "></i> {{ role }}
+         {% endif %}
+         <br>
+    {% endfor %}
+
+    {% if current_user.is_admin %}
+        <br>
+        <p>
+            <a href="{{ url_for('profile_edit') }}" class="btn btn-primary">&nbsp; Edit &nbsp;</a>
+        </p>
+    {% endif %}
+
+{% endblock %}

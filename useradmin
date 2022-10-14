@@ -1,0 +1,6 @@
+#/bin/bash
+
+export PYTHON_LOGGER_LEVEL=WARNING
+export FLASK_LOG_DIR=logs
+
+python useradmin.py "$@" | grep -v "Flask Application Startup"

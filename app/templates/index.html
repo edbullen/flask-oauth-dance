@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.google_logo {
+  width: 20%;
+  min-width: 150px;
+  max-width: 600px;
+}
+</style>
+
+<h1> Flask OAuth Index Page</h1>
+
+{% if current_user.is_authenticated %}
+
+  <br>
+  <br> see the Session-Login Protected information at <a href="{{ url_for('protected') }}">Protected Page</a>
+  <br> see the Role-Protected home-page (requires "user" role) at <a href="{{ url_for('homepage') }}">Home Page</a>
+  <br> see the Admin Page (requires the "admin" role) at <a href="{{ url_for('admin') }}">Admin Page</a>
+
+{% else %}
+
+  <br><br>
+
+  <a href={{url_for('google.login')}} ><img src="static/google_logo.png" class="google_logo"></a>
+
+{% endif %}
+
+{% endblock %}

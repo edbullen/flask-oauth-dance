@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Find Users </h1>
+
+<form  method="post" name="search">
+
+  {{ form.hidden_tag() }}
+
+
+
+  <input type="submit" value="Search">
+
+</form>
+
+{% endblock %}
