@@ -6,3 +6,9 @@ Werkzeug==2.2.2
 Flask-Dance
 pyopenssl
 wtforms[email]
+Flask-Mail
+Flask-SQLAlchemy
+Flask-Migrate 
+Flask-Principal
+Flask-Security
+
