@@ -29,7 +29,13 @@ https://flask-dance.readthedocs.io/en/v0.8.3/quickstarts/google.html
  useradmin.py    
 ```
 
+## Install Notes
 
+Ubuntu Library dependancies
+
+Ubuntu 18
+
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
 
 ### User Mixin Integration Reference
 
@@ -106,9 +112,23 @@ flask db upgrade
 
 # Run
 
+### Configure
 
+Configure / set the following environment variables:
+```
+export FLASK_LOG_DIR=<path to logs>
+export GOOGLE_OAUTH_CLIENT_ID=<Google Oauth API ID>
+export GOOGLE_OAUTH_CLIENT_SECRET=<Google Oauth API Secret>
+```
+
+### Start
+Run on port 5000
 ```commandline
 flask run
+```
+Run on port 80
+```commandline
+flask run --host 0.0.0.0 --port 80
 ```
 
 # Other notes
