@@ -79,8 +79,16 @@ Google Cloud Console -> APIs and Services -> Credentials -> *"Create Credentials
   
 Create a new `OAuth 2.0 Client ID`  
 
-+ Authorized Javascript Origins -> set this to https://127.0.0.1:5000
-+ Authorized redirect URIs -> set this to https://127.0.0.1:5000/login/google/authorized
++ Authorized Javascript Origins -> set this to `https://127.0.0.1:5000`
++ Authorized redirect URIs -> set this to `https://127.0.0.1:5000/login/google/authorized`
+
+The above URIs can be used for local development.
+
+For running in a shared test / production cloud environment add additional configuration as necessary: 
+
++ Authorized Javascript Origins - `https://<mydnsalias>`
++ Authorized redirect URIs -> set this to `https://<mydnsalias>/login/google/authorized`
+
 
 API credential providers for OAuth are listed under  
 *Cloud Console -> APIs and Services -> Credentials*  
